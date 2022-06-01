@@ -11,7 +11,7 @@ public class ProgramInit {
         return true;
     }
     
-    public static ValidatorRuntimeConfig initialiseProgramConfig(String[] initSwitches){
+    public static ValidatorRuntimeConfig createProgramConfig(String[] initSwitches){
         ValidatorRuntimeConfig configBeingPopulated = ValidatorRuntimeConfig.getInstance();
         return configBeingPopulated;
     }

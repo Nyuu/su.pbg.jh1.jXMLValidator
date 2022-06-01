@@ -8,6 +8,8 @@ import su.pbg.jh1.jxmlvalidator.programlib.ExitCode;
  * @author Jaina Hanke
  */
 public class XMLValidator {
+    
+    static ValidatorRuntimeConfig validatorConfig;
     /**
      * Entry point for starting the XMLValidator program.
      * Should exit with code 0 for {@link su.pbg.jh1.jxmlvalidator.programlib.ExitCode#SUCCESS SUCCESS} when the application finished with the expected tasks successfully.
@@ -16,10 +18,11 @@ public class XMLValidator {
      */
     public static void main(String[] initSwitches) {
         if(!ProgramInit.programCalledwithSwitches(initSwitches)){
+            System.err.println("No parameters/switches specified. Program will terminate");
             System.exit(ExitCode.GENERIC_FORESEEABLE_ERROR);
         }
         
-        
+        validatorConfig = ProgramInit.createProgramConfig(initSwitches);
         
         System.exit(ExitCode.SUCCESS);
     }
