@@ -48,14 +48,10 @@ public class ValidatorRuntimeConfig {
      */
     private String[] RELATIVE_XMLFILES_PATH_ARRAY;
     
-    void setConfigOptions(boolean debug,
-            boolean verbose,
-            boolean verify,
-            byte restructureMode,
-            short maxConcurentFileProcessing,
-            String validatorPathAbsolute,
-            String xsdFilePathRelative,
-            String[] xmlFilesPathArrayRelative)
+    void setConfigOptions(boolean debug, boolean verbose, boolean verify,
+                          byte restructureMode, short maxConcurentFileProcessing,
+                          String validatorPathAbsolute, String xsdFilePathRelative,
+                          String[] xmlFilesPathArrayRelative)
     {
         this.DEBUG_MODE = debug;
         this.VERBOSE_MODE = verbose;
