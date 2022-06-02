@@ -93,7 +93,7 @@ public class ValidatorRuntimeConfig {
         return RESTRUCTURE_TYPE;
     }
 
-    public short getMAX_CONCURENT_FILE_PROCESSING() {
+    public short getMAX_CONCURRENT_FILE_PROCESSING() {
         return MAX_CONCURRENT_FILE_PROCESSING;
     }
 
