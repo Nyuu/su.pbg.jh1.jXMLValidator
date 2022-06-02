@@ -19,7 +19,7 @@ public class ValidatorRuntimeConfig {
     private boolean VERIFY_MODE;
     /**
      * The structure type for XML files that the program will output
-     * {@see}
+     * @see su.pbg.jh1.jxmlvalidator.programlib.DefinitionsRestructureTypes
      */
     private byte RESTRUCTURE_TYPE;
     

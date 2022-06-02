@@ -76,6 +76,7 @@ buildNumber.properties
 #NetBeans stuff
 nbproject/
 nbactions.xml
+nb-configuration.xml
 manifest.mf
 build.xml
 build/

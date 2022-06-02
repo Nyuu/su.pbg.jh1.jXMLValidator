@@ -4,9 +4,10 @@ package su.pbg.jh1.jxmlvalidator.programlib;
  * ZERO means the program finished every expected task successfully and without incidents.
  * Negative codes signal an abnormal, unforeseeable termination of the program.
  * Positive codes signal an abnormal termination that the caller can reasonably expect.
+ * 
  * @author Jaina Hanke
  */
-public abstract class DefinitionsExitCodes {
+public abstract class DefinitionsExitCodes extends Definitions{
     /**
      * Default exit code
      */
