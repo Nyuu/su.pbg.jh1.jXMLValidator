@@ -5,7 +5,7 @@ import su.pbg.jh1.jxmlvalidator.programlib.ValidatorRuntimeConfig;
 import su.pbg.jh1.jxmlvalidator.programlib.DefinitionsExitCodes;
 
 /**
- * The class containing the main method, starting the program.
+ * The class containing the main method, starting the program and, if necessary, terminating it.
  * @author Jaina Hanke
  */
 public class XMLValidator {
@@ -19,9 +19,9 @@ public class XMLValidator {
      * @param initSwitches An array containing all the parameters and switches with which the program was called.
      */
     public static void main(String[] initSwitches) {
+        
         if(!ProgramInit.programCalledwithSwitches(initSwitches)){
-            System.err.println("No parameters/switches specified. Program will terminate");
-            System.exit(DefinitionsExitCodes.GENERIC_FORESEEABLE_ERROR);
+            terminateProgramForeseeable(DefinitionsExitCodes.GENERIC_FORESEEABLE_ERROR, "No parameters/switches specified. Program will terminate");
         }
         
         validatorConfig = ProgramInit.createProgramConfig(initSwitches);
@@ -29,4 +29,22 @@ public class XMLValidator {
         System.exit(DefinitionsExitCodes.SUCCESS);
     }
 
+    /**
+     * 
+     * Implicitly calls {@link #terminateProgramWithExitCode(byte) }after writing to stderr
+     * @param exitCode
+     * @param stderrMessage 
+     */
+    private static void terminateProgramForeseeable(byte exitCode, String stderrMessage){
+        System.err.println(stderrMessage);
+        terminateProgramWithExitCode(exitCode);
+    }
+    
+    /**
+     * Terminates the program
+     * @param exitCode 
+     */
+    private static void terminateProgramWithExitCode(byte exitCode){
+        System.exit(exitCode);
+    }
 }
