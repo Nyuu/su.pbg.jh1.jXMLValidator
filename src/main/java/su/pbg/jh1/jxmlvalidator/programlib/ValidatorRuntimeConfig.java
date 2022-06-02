@@ -2,7 +2,6 @@ package su.pbg.jh1.jxmlvalidator.programlib;
 
 /**
  *A singleton class containing necessary flags, parameters and values for the program to function properly.
- * 
  * @author Jaina Hanke <JainaO@yandex.com> <jh1@pbg.su>
  */
 public class ValidatorRuntimeConfig {
@@ -76,10 +75,11 @@ public class ValidatorRuntimeConfig {
         this.RELATIVE_XMLFILES_PATH_ARRAY = xmlFilesPathArrayRelative;
     }
     
+    //Used to make this class a singleton
     private ValidatorRuntimeConfig() {
     }
     
-    //Used to make this class a singleton
+    //Used to make this class a singleton and to instantiate it
     public static ValidatorRuntimeConfig getInstance() {
         return ValidatorRuntimeConfigHolder.INSTANCE;
     }
@@ -151,5 +151,4 @@ public class ValidatorRuntimeConfig {
     public String[] getRELATIVE_XMLFILES_PATH_ARRAY() {
         return RELATIVE_XMLFILES_PATH_ARRAY;
     }
-    
 }
