@@ -4,11 +4,24 @@ package su.pbg.jh1.jxmlvalidator.programlib;
  * @author Jaina Hanke <JainaO@yandex.com> <jh1@pbg.su>
  */
 public class ValidatorRuntimeConfig {
-    
+    /**
+     * The debug flag, giving excessive output to stdout.
+     * Implicitly sets the verbose flag.
+     */
     private boolean DEBUG_MODE;
+    /**
+     * The verbose flag, giving some useful output to stdout.
+     */
     private boolean VERBOSE_MODE;
+    /**
+     * The verify flag, making the program just quickly check if XML files are sane.
+     */
     private boolean VERIFY_MODE;
-    private byte RESTRUCTURE_MODE;
+    /**
+     * The structure type for XML files that the program will output
+     * {@see}
+     */
+    private byte RESTRUCTURE_TYPE;
     
     private short MAX_CONCURENT_FILE_PROCESSING;
     
@@ -61,8 +74,8 @@ public class ValidatorRuntimeConfig {
         return VERIFY_MODE;
     }
 
-    public byte getRESTRUCTURE_MODE() {
-        return RESTRUCTURE_MODE;
+    public byte getRESTRUCTURE_TYPE() {
+        return RESTRUCTURE_TYPE;
     }
 
     public short getMAX_CONCURENT_FILE_PROCESSING() {

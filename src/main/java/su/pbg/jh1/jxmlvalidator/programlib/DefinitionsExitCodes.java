@@ -6,7 +6,7 @@ package su.pbg.jh1.jxmlvalidator.programlib;
  * Positive codes signal an abnormal termination that the caller can reasonably expect.
  * @author Jaina Hanke
  */
-public final class ExitCode {
+public abstract class DefinitionsExitCodes {
     /**
      * Default exit code
      */
