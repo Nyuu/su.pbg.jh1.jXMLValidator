@@ -1,34 +1,51 @@
 package su.pbg.jh1.jxmlvalidator.programlib;
+
 /**
  *
  * @author Jaina Hanke <JainaO@yandex.com> <jh1@pbg.su>
  */
 public class ValidatorRuntimeConfig {
+    
     /**
      * The debug flag, giving excessive output to stdout.
      * Implicitly sets the verbose flag.
      */
     private boolean DEBUG_MODE;
+    
     /**
      * The verbose flag, giving some useful output to stdout.
      */
     private boolean VERBOSE_MODE;
+    
     /**
      * The verify flag, making the program just quickly check if XML files are sane.
      */
     private boolean VERIFY_MODE;
+    
     /**
      * The structure type for XML files that the program will output
      * @see su.pbg.jh1.jxmlvalidator.programlib.DefinitionsRestructureTypes
      */
     private byte RESTRUCTURE_TYPE;
     
-    private short MAX_CONCURENT_FILE_PROCESSING;
+    /**
+     * The maximum number of concurrent files that are being processed.
+     */
+    private short MAX_CONCURRENT_FILE_PROCESSING;
     
+    /**
+     * Absolute path where the XMLValidator program is called from
+     */
     private String ABSOLUTE_VALIDATOR_OPERATING_PATH;
     
+    /**
+     * Relative path of a XSD file if provided
+     */
     private String RELATIVE_XSDFILE_PATH;
-            
+    
+    /**
+     * Array of relative paths of provided XML files
+     */
     private String[] RELATIVE_XMLFILES_PATH_ARRAY;
     
     
@@ -45,7 +62,7 @@ public class ValidatorRuntimeConfig {
         this.DEBUG_MODE = debug;
         this.VERBOSE_MODE = verbose;
         this.VERIFY_MODE = verify;
-        this.MAX_CONCURENT_FILE_PROCESSING = maxConcurentFileProcessing;
+        this.MAX_CONCURRENT_FILE_PROCESSING = maxConcurentFileProcessing;
         this.ABSOLUTE_VALIDATOR_OPERATING_PATH = validatorPathAbsolute;
         this.RELATIVE_XSDFILE_PATH = xsdFilePathRelative;
         this.RELATIVE_XMLFILES_PATH_ARRAY = xmlFilesPathArrayRelative;

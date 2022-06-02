@@ -1,5 +1,4 @@
 package su.pbg.jh1.jxmlvalidator.programlib;
-
 /**
  * 
  * Classes extended from this class are used to define some finite states, constants, switches and other important values needed for the initialisation of the program or to look up values during runtime.

@@ -3,6 +3,7 @@ package su.pbg.jh1.jxmlvalidator;
 import su.pbg.jh1.jxmlvalidator.programlib.ProgramInit;
 import su.pbg.jh1.jxmlvalidator.programlib.ValidatorRuntimeConfig;
 import su.pbg.jh1.jxmlvalidator.programlib.DefinitionsExitCodes;
+
 /**
  * The class containing the main method, starting the program.
  * @author Jaina Hanke
@@ -10,6 +11,7 @@ import su.pbg.jh1.jxmlvalidator.programlib.DefinitionsExitCodes;
 public class XMLValidator {
     
     static ValidatorRuntimeConfig validatorConfig;
+    
     /**
      * Entry point for starting the XMLValidator program.
      * Should exit with code 0 for {@link su.pbg.jh1.jxmlvalidator.programlib.DefinitionsExitCodes#SUCCESS SUCCESS} when the application finished with the expected tasks successfully.

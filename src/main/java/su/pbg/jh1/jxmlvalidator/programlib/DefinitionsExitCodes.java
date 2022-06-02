@@ -1,4 +1,5 @@
 package su.pbg.jh1.jxmlvalidator.programlib;
+
 /**
  * Exit code definitions to signal program termination states to the system.
  * ZERO means the program finished every expected task successfully and without incidents.
@@ -8,6 +9,7 @@ package su.pbg.jh1.jxmlvalidator.programlib;
  * @author Jaina Hanke
  */
 public abstract class DefinitionsExitCodes extends Definitions{
+    
     /**
      * Default exit code
      */

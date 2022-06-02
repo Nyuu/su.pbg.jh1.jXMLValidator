@@ -1,11 +1,11 @@
 package su.pbg.jh1.jxmlvalidator.programlib;
+
 /**
  * Restructure type definitions used to tell the program if or how a restructured file should be written.
  * 
  * @see DefinitionsRestructureTypes#NONE
  * @author Jaina Hanke <JainaO@yandex.com> <jh1@pbg.su>
  */
-
 public abstract class DefinitionsRestructureTypes extends Definitions{
     
     /**
