@@ -8,7 +8,7 @@ public class ValidatorRuntimeConfig {
     
     /**
      * The debug flag, giving excessive output to stdout.
-     * Implicitly sets the verbose flag.
+     * Implicitly sets the verbose {@link #VERBOSE_MODE} flag.
      */
     private boolean DEBUG_MODE;
     
@@ -48,15 +48,27 @@ public class ValidatorRuntimeConfig {
      */
     private String[] RELATIVE_XMLFILES_PATH_ARRAY;
     
+    /**
+     * Called once during the initial program startup after the paramswitch logic to set the program runtime config.
+     * 
+     * @param debug sets {@link #DEBUG_MODE}
+     * @param verbose sets {@link #VERBOSE_MODE}
+     * @param verify sets {@link #VERIFY_MODE}
+     * @param restructureType sets {@link #RESTRUCTURE_TYPE}
+     * @param maxConcurrentFileProcessing sets {@link #MAX_CONCURRENT_FILE_PROCESSING}
+     * @param validatorPathAbsolute sets {@link #ABSOLUTE_VALIDATOR_OPERATING_PATH}
+     * @param xsdFilePathRelative sets {@link #RELATIVE_XSDFILE_PATH}
+     * @param xmlFilesPathArrayRelative sets {@link #RELATIVE_XMLFILES_PATH_ARRAY}
+     */
     void setConfigOptions(boolean debug, boolean verbose, boolean verify,
-                          byte restructureMode, short maxConcurentFileProcessing,
+                          byte restructureType, short maxConcurrentFileProcessing,
                           String validatorPathAbsolute, String xsdFilePathRelative,
-                          String[] xmlFilesPathArrayRelative){
-        
+                          String[] xmlFilesPathArrayRelative)
+    {    
         this.DEBUG_MODE = debug;
         this.VERBOSE_MODE = verbose;
         this.VERIFY_MODE = verify;
-        this.MAX_CONCURRENT_FILE_PROCESSING = maxConcurentFileProcessing;
+        this.MAX_CONCURRENT_FILE_PROCESSING = maxConcurrentFileProcessing;
         this.ABSOLUTE_VALIDATOR_OPERATING_PATH = validatorPathAbsolute;
         this.RELATIVE_XSDFILE_PATH = xsdFilePathRelative;
         this.RELATIVE_XMLFILES_PATH_ARRAY = xmlFilesPathArrayRelative;
