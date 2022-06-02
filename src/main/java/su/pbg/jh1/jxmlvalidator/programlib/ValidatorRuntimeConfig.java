@@ -51,8 +51,8 @@ public class ValidatorRuntimeConfig {
     void setConfigOptions(boolean debug, boolean verbose, boolean verify,
                           byte restructureMode, short maxConcurentFileProcessing,
                           String validatorPathAbsolute, String xsdFilePathRelative,
-                          String[] xmlFilesPathArrayRelative)
-    {
+                          String[] xmlFilesPathArrayRelative){
+        
         this.DEBUG_MODE = debug;
         this.VERBOSE_MODE = verbose;
         this.VERIFY_MODE = verify;
