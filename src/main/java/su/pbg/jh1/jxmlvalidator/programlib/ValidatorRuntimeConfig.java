@@ -48,8 +48,6 @@ public class ValidatorRuntimeConfig {
      */
     private String[] RELATIVE_XMLFILES_PATH_ARRAY;
     
-    
-    
     void setConfigOptions(boolean debug,
             boolean verbose,
             boolean verify,
@@ -96,7 +94,7 @@ public class ValidatorRuntimeConfig {
     }
 
     public short getMAX_CONCURENT_FILE_PROCESSING() {
-        return MAX_CONCURENT_FILE_PROCESSING;
+        return MAX_CONCURRENT_FILE_PROCESSING;
     }
 
     public String getABSOLUTE_VALIDATOR_OPERATING_PATH() {
