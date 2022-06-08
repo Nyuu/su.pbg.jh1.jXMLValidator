@@ -20,7 +20,7 @@ public class XMLValidator {
      */
     public static void main(String[] initSwitches) {
         
-        if(!ProgramInit.programCalledwithSwitches(initSwitches)){
+        if(!ProgramInit.programCalledWithSwitches(initSwitches)){
             terminateProgramForeseeable(DefinitionsExitCodes.GENERIC_FORESEEABLE_ERROR, "No parameters/switches specified. Program will terminate");
         }
         
@@ -28,7 +28,7 @@ public class XMLValidator {
         
         System.exit(DefinitionsExitCodes.SUCCESS);
     }
-
+    
     /**
      * 
      * Implicitly calls {@link #terminateProgramWithExitCode(byte) }after writing to stderr
