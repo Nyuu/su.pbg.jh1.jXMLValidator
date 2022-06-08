@@ -26,7 +26,7 @@ public class XMLValidator {
         
         validatorConfig = ProgramInit.createProgramConfig(initSwitches);
         
-        System.exit(DefinitionsExitCodes.SUCCESS);
+        terminateProgramWithExitCode(DefinitionsExitCodes.SUCCESS);
     }
     
     /**
