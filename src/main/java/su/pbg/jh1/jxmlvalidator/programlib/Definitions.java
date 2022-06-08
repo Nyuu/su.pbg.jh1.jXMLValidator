@@ -8,5 +8,5 @@ package su.pbg.jh1.jxmlvalidator.programlib;
 
 public abstract class Definitions {
 //EMPTY CLASS
-//Created to make the javadoc and uml diagrams more structured
+//Created to make the javadoc and uml diagrams more structured ^_^
 }

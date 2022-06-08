@@ -15,8 +15,17 @@ public abstract class DefinitionsExitCodes extends Definitions{
      */
     public static final byte SUCCESS = 0;
     
+    //GENERIC ERROR CODES
     public static final byte GENERIC_FORESEEABLE_ERROR = 1;
     
     public static final byte GENERIC_UNFORESEEABLE_ERROR = -1;
     
+    //Layer 8 Class Errorcodes
+    public static final byte NO_PARAM_SWITCHES_PROVIDED_ERROR = 20;
+    
+    public static final byte INVALID_PARAM_SWITCHES_PROVIDED_ERROR = 21;
+    
+    public static final byte NO_XML_FILE_PROVIDED_ERROR = 22;
+    
+    public static final byte INVALID_XML_FILE_PROVIDED_ERROR = 23;
 }
