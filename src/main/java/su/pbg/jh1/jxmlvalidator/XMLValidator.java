@@ -21,7 +21,15 @@ public class XMLValidator {
     public static void main(String[] initSwitches) {
         
         if(!ProgramInit.programCalledWithSwitches(initSwitches)){
-            terminateProgramForeseeable(DefinitionsExitCodes.NO_PARAM_SWITCHES_PROVIDED_ERROR, "No parameters/switches specified. Program will terminate");
+            terminateProgramForeseeable(DefinitionsExitCodes.NO_PARAM_SWITCHES_PROVIDED_ERROR, "No parameters/switches specified. The program will terminate.");
+        }
+        
+        if(!ProgramInit.providedParamSwitchesIsValid(initSwitches)){
+            terminateProgramForeseeable(DefinitionsExitCodes.INVALID_PARAM_SWITCHES_PROVIDED_ERROR, "An invalid parameter/switch was provided. The program will terminate.");
+        }
+        
+        if(!ProgramInit.providedParamSwitchesIsSane(initSwitches)){
+            terminateProgramForeseeable(DefinitionsExitCodes.NOT_ENOUGH_PARAM_ARGUMENTS_ERROR, "A parameter was expecting more arguments. The program will terminate.");
         }
         
         validatorConfig = ProgramInit.createProgramConfig(initSwitches);

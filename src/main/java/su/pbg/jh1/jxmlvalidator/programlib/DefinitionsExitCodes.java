@@ -25,7 +25,9 @@ public abstract class DefinitionsExitCodes extends Definitions{
     
     public static final byte INVALID_PARAM_SWITCHES_PROVIDED_ERROR = 21;
     
-    public static final byte NO_XML_FILE_PROVIDED_ERROR = 22;
+    public static final byte NOT_ENOUGH_PARAM_ARGUMENTS_ERROR = 22;
     
-    public static final byte INVALID_XML_FILE_PROVIDED_ERROR = 23;
+    public static final byte NO_XML_FILE_PROVIDED_ERROR = 23;
+    
+    public static final byte INVALID_XML_FILE_PROVIDED_ERROR = 24;
 }

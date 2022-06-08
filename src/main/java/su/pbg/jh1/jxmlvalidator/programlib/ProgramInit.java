@@ -12,6 +12,21 @@ public class ProgramInit {
         return true;
     }
     
+    
+    public static boolean providedParamSwitchesIsValid(String[] initSwitches){
+        if(true){
+            return false;
+        }
+        return true;
+    }
+    
+    public static boolean providedParamSwitchesIsSane(String[] initSwitches){
+        if(true){
+            return false;
+        }
+        return true;
+    }
+    
     public static ValidatorRuntimeConfig createProgramConfig(String[] initSwitches){
         ValidatorRuntimeConfig configBeingPopulated = ValidatorRuntimeConfig.getInstance();
         return configBeingPopulated;
