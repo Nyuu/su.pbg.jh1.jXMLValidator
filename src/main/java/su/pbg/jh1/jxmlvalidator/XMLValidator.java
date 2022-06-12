@@ -27,14 +27,14 @@ public class XMLValidator {
         if(!ProgramInit.providedParamSwitchesIsValid(initSwitches)){
             terminateProgramForeseeable(DefinitionsExitCodes.INVALID_PARAM_SWITCHES_PROVIDED_ERROR, "An invalid parameter/switch was provided. The program will terminate.");
         }
-        /*
+        
         if(!ProgramInit.providedParamSwitchesIsSane(initSwitches)){
             terminateProgramForeseeable(DefinitionsExitCodes.NOT_ENOUGH_PARAM_ARGUMENTS_ERROR, "A parameter was expecting more arguments. The program will terminate.");
         }
         
-        validatorConfig = ProgramInit.createProgramConfig(initSwitches);
+        //validatorConfig = ProgramInit.createProgramConfig(initSwitches);
         
-        terminateProgramWithExitCode(DefinitionsExitCodes.SUCCESS);*/
+        terminateProgramWithExitCode(DefinitionsExitCodes.SUCCESS);
     }
     
     /**

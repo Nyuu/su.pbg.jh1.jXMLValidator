@@ -1,10 +1,18 @@
 package su.pbg.jh1.jxmlvalidator.programlib;
 
-//Import from same package done for better readability and understanding ^^
+
+import java.util.Iterator;
 import java.util.ArrayList;
+import java.util.HashSet;
+//Import from same package done for better readability and understanding ^^
 import su.pbg.jh1.jxmlvalidator.programlib.ValidatorRuntimeConfig;
 
 public class ProgramInit {
+    
+    public static ValidatorRuntimeConfig createProgramConfig(String[] initSwitches){
+        ValidatorRuntimeConfig configBeingPopulated = ValidatorRuntimeConfig.getInstance();
+        return configBeingPopulated;
+    }
     
     public static boolean programCalledWithSwitches(String[] initSwitches){
         if(initSwitches.length==0){
@@ -14,71 +22,74 @@ public class ProgramInit {
     }
     
     public static boolean providedParamSwitchesIsValid(String[] initSwitches){
-        
-        boolean providedDebug = false;
-        boolean providedVerbose = false;
-        boolean providedVerify = false;
-        boolean providedConformity = false;
-        
-        boolean providedRestructure = false;
-        boolean providedConcurrency = false;
-        boolean providedXSD = false;
-        boolean providedXML = false;
-        
         //If the first provided Element isn't a valid paramswitch, the program was not called correctly so we can quit right away ^^
-        if(couldBeParamSwitch(initSwitches[0])){
+        if(!couldBeParamSwitch(initSwitches[0])){
             return false;
         }
-        for(int i = 0; i > initSwitches.length; i++){
-            
-            
-            
-            
-            
-            
-            
-            
-        }
-        
-        return false;
-    }
-    
-    
-    /*public static boolean providedParamSwitchesIsSane(String[] initSwitches){
-        if(true){
-            return false;
+        HashSet<String> providedParamSwitches = new HashSet<>();
+        for(int i = 0; i < initSwitches.length; i++){
+            if(isDefinedParamSwitch(initSwitches[i])){
+                if(providedParamSwitches.contains(getMatchedParamSwitchFullName(initSwitches[i]))){
+                    return false;
+                }
+                providedParamSwitches.add(getMatchedParamSwitchFullName(initSwitches[i]));
+            }
         }
         return true;
-    }*/
-    
-    private static boolean couldBeLongParamSwitch(String isolatedParamSwitchArrayElement){
-        if(!(isolatedParamSwitchArrayElement.length() >= 3)){
-            return false;
-        }
-        if(isolatedParamSwitchArrayElement.charAt(1) == '-'){
-            return true;
-        }
-        return false;
     }
     
+    public static boolean providedParamSwitchesIsSane(String[] initSwitches){
+        for(int i = 0; i < initSwitches.length; i++){
+            if(isDefinedParamSwitch(initSwitches[i])){
+                if(getParamSwitchByFullName(getMatchedParamSwitchFullName(initSwitches[i])).isNEEDS_ADDITIONAL_ARGUMENTS()){
+                    if(initSwitches.length <= (i+1)){
+                        return false;
+                    }
+                    if(isDefinedParamSwitch(initSwitches[i+1])){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    
+    private static boolean isDefinedParamSwitch(String isolatedParamSwitchArrayElement){
+        if(!(couldBeParamSwitch(isolatedParamSwitchArrayElement))){
+            return false;
+        }
+        return getMatchedParamSwitchFullName(isolatedParamSwitchArrayElement) != null;
+    }
+    
+    private static String getMatchedParamSwitchFullName(String isolatedParamSwitchArrayElement){
+        ArrayList<DefinitionsParamSwitches> currentDefinedValidParamSwitches = getDefinedParamSwitches();
+        for(DefinitionsParamSwitches currentlyIteratedParamSwitch : currentDefinedValidParamSwitches){
+            if((currentlyIteratedParamSwitch.getCALL_NAME_FULL().equals(isolatedParamSwitchArrayElement)) || (currentlyIteratedParamSwitch.getCALL_NAME_SHORT().equals(isolatedParamSwitchArrayElement))){
+                return currentlyIteratedParamSwitch.getFULL_NAME();
+            }
+        }
+        return null;
+    }
+    
+    private static DefinitionsParamSwitches getParamSwitchByFullName(String fullNameOfParamSwitch){
+        ArrayList<DefinitionsParamSwitches> currentDefinedValidParamSwitches = getDefinedParamSwitches();
+        for(DefinitionsParamSwitches currentlyIteratedParamSwitch : currentDefinedValidParamSwitches){
+            if(currentlyIteratedParamSwitch.getFULL_NAME().equals(fullNameOfParamSwitch)){
+                return currentlyIteratedParamSwitch;
+            }
+        }
+        return null;
+    }
+
     private static boolean couldBeParamSwitch(String isolatedParamSwitchArrayElement){
         if(!(isolatedParamSwitchArrayElement.length() >= 2)){
             return false;
         }
-        if(isolatedParamSwitchArrayElement.charAt(0) == '-'){
-            return true;
-        }
-        return false;
-    }
-    
-    public static ValidatorRuntimeConfig createProgramConfig(String[] initSwitches){
-        ValidatorRuntimeConfig configBeingPopulated = ValidatorRuntimeConfig.getInstance();
-        return configBeingPopulated;
+        return isolatedParamSwitchArrayElement.charAt(0) == '-';
     }
     
     private static ArrayList<DefinitionsParamSwitches> getDefinedParamSwitches(){
         ArrayList<DefinitionsParamSwitches> currentDefinedValidParamSwitches = new ArrayList<>();
-        
         
         currentDefinedValidParamSwitches.add(0, new DefinitionsParamSwitchesDebug());
         currentDefinedValidParamSwitches.add(0, new DefinitionsParamSwitchesVerbose());
