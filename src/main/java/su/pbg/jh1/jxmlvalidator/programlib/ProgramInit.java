@@ -5,6 +5,7 @@ import su.pbg.jh1.jxmlvalidator.programlib.ValidatorRuntimeConfig;
 
 public class ProgramInit {
     
+    
     public static boolean programCalledWithSwitches(String[] initSwitches){
         if(initSwitches.length==0){
             return false;
@@ -19,6 +20,7 @@ public class ProgramInit {
         }
         return true;
     }
+    
     
     public static boolean providedParamSwitchesIsSane(String[] initSwitches){
         if(true){

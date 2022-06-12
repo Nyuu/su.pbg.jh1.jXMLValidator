@@ -23,6 +23,12 @@ public class ValidatorRuntimeConfig {
     private boolean VERIFY_MODE;
     
     /**
+     * The conformity check flag is currently not implemented. In the future,it is meant to check if an XML file adheres to the official standard (or the one defined in the prologue).
+     * Currently just set to false in the constructor.
+     */
+    private boolean CONFORMITY_CHECK_MODE;
+    
+    /**
      * The structure type for XML files that the program will output
      * @see su.pbg.jh1.jxmlvalidator.programlib.DefinitionsRestructureTypes
      */
@@ -64,7 +70,7 @@ public class ValidatorRuntimeConfig {
                           byte restructureType, short maxConcurrentFileProcessing,
                           String validatorPathAbsolute, String xsdFilePathRelative,
                           String[] xmlFilesPathArrayRelative)
-    {    
+    {
         this.DEBUG_MODE = debug;
         this.VERBOSE_MODE = verbose;
         this.VERIFY_MODE = verify;
@@ -77,6 +83,7 @@ public class ValidatorRuntimeConfig {
     
     //Used to make this class a singleton
     private ValidatorRuntimeConfig() {
+        this.CONFORMITY_CHECK_MODE = false;
     }
     
     //Used to make this class a singleton and to instantiate it
@@ -110,6 +117,14 @@ public class ValidatorRuntimeConfig {
      */
     public boolean isVERIFY_MODE() {
         return VERIFY_MODE;
+    }
+    
+    /**
+     * 
+     * @return returns the {@link #} flag
+     */
+    public boolean isCONFORMITY_CHECK_MODE() {
+        return CONFORMITY_CHECK_MODE;
     }
 
     /**

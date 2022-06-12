@@ -6,7 +6,7 @@ package su.pbg.jh1.jxmlvalidator.programlib;
  * @see DefinitionsRestructureTypes#NONE
  * @author Jaina Hanke <JainaO@yandex.com> <jh1@pbg.su>
  */
-public abstract class DefinitionsRestructureTypes extends Definitions{
+public abstract class DefinitionsRestructureTypes extends Definitions {
     
     /**
      * {@value DefinitionsRestructureTypes#NONE}

@@ -8,7 +8,7 @@ package su.pbg.jh1.jxmlvalidator.programlib;
  * 
  * @author Jaina Hanke
  */
-public abstract class DefinitionsExitCodes extends Definitions{
+public abstract class DefinitionsExitCodes extends Definitions {
     
     /**
      * Default exit code
