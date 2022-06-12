@@ -1,19 +1,23 @@
 package su.pbg.jh1.jxmlvalidator.programlib;
 
-public abstract class DefinitionsParamSwitches extends Definitions {
+/**
+ * Lays out the properties for paramswitches to help check if the program was called in a sane state.
+ * @author Jaina Hanke <JainaO@yandex.com> <jh1@pbg.su>
+ */
+public abstract class DefinitionsParamSwitches extends Definitions{
     
     /**
-     * The full name of the paramswitch used in the documentation and in outputs
+     * The full name of the paramswitch used in the documentation and in outputs.
      */
     private String FULL_NAME;
     
     /**
-     * The full call name of the paramswitch
+     * The full call name of the paramswitch.
      */
     private String CALL_NAME_FULL;
     
     /**
-     * The short call name of the paramswitch or "handle"
+     * The short call name of the paramswitch or "handle".
      */
     private String CALL_NAME_SHORT;
     

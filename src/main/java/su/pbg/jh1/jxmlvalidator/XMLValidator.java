@@ -6,7 +6,7 @@ import su.pbg.jh1.jxmlvalidator.programlib.DefinitionsExitCodes;
 
 /**
  * The class containing the main method, starting the program and, if necessary, terminating it.
- * @author Jaina Hanke
+ * @author Jaina Hanke <JainaO@yandex.com> <jh1@pbg.su>
  */
 public class XMLValidator {
     
