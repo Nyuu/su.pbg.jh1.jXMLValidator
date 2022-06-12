@@ -20,6 +20,14 @@ public class XMLValidator {
      */
     public static void main(String[] initSwitches) {
         
+        checkParamSwitchesRoutine(initSwitches);
+        
+        //validatorConfig = ProgramInit.createProgramConfig(initSwitches);
+        
+        terminateProgramWithExitCode(DefinitionsExitCodes.SUCCESS);
+    }
+    
+    private static void checkParamSwitchesRoutine(String[] initSwitches){
         if(!ProgramInit.programCalledWithSwitches(initSwitches)){
             terminateProgramForeseeable(DefinitionsExitCodes.NO_PARAM_SWITCHES_PROVIDED_ERROR, "No parameters/switches specified. The program will terminate.");
         }
@@ -32,9 +40,9 @@ public class XMLValidator {
             terminateProgramForeseeable(DefinitionsExitCodes.NOT_ENOUGH_PARAM_ARGUMENTS_ERROR, "A parameter was expecting more arguments. The program will terminate.");
         }
         
-        //validatorConfig = ProgramInit.createProgramConfig(initSwitches);
-        
-        terminateProgramWithExitCode(DefinitionsExitCodes.SUCCESS);
+        if(!ProgramInit.programCalledWithAllNecessarySwitches(initSwitches)){
+            terminateProgramForeseeable(DefinitionsExitCodes.GENERIC_FORESEEABLE_ERROR, "Not all necessary parameters for the program start were provided");
+        }
     }
     
     /**
@@ -47,6 +55,7 @@ public class XMLValidator {
         System.err.println(stderrMessage);
         terminateProgramWithExitCode(exitCode);
     }
+    
     /**
      * 
      * Implicitly calls {@link #terminateProgramWithExitCode(byte) }after writing to stderr

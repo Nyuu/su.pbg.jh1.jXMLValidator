@@ -14,6 +14,19 @@ public class ProgramInit {
         return configBeingPopulated;
     }
     
+    public static boolean programCalledWithAllNecessarySwitches(String[] initSwitches){
+        int requiredParamSwitches = getRequiredParamSwitches().size();
+        int calledRequiredParamSwitches = 0;
+        for(int i = 0; i < initSwitches.length; i++){
+            if(isDefinedParamSwitch(initSwitches[i])){
+                if(!getParamSwitchByFullName(getMatchedParamSwitchFullName(initSwitches[i])).isOPTIONAL()){
+                    ++calledRequiredParamSwitches;
+                }
+            }
+        }
+        return (requiredParamSwitches == calledRequiredParamSwitches);
+    }
+    
     public static boolean programCalledWithSwitches(String[] initSwitches){
         if(initSwitches.length==0){
             return false;
@@ -58,7 +71,7 @@ public class ProgramInit {
         if(!(couldBeParamSwitch(isolatedParamSwitchArrayElement))){
             return false;
         }
-        return getMatchedParamSwitchFullName(isolatedParamSwitchArrayElement) != null;
+        return (getMatchedParamSwitchFullName(isolatedParamSwitchArrayElement) != null);
     }
     
     private static String getMatchedParamSwitchFullName(String isolatedParamSwitchArrayElement){
@@ -85,7 +98,7 @@ public class ProgramInit {
         if(!(isolatedParamSwitchArrayElement.length() >= 2)){
             return false;
         }
-        return isolatedParamSwitchArrayElement.charAt(0) == '-';
+        return (isolatedParamSwitchArrayElement.charAt(0) == '-');
     }
     
     private static ArrayList<DefinitionsParamSwitches> getDefinedParamSwitches(){
@@ -102,5 +115,17 @@ public class ProgramInit {
         currentDefinedValidParamSwitches.add(0, new DefinitionsParamSwitchesXMLFileInput());
         
         return currentDefinedValidParamSwitches;
+    }
+    
+    private static ArrayList<DefinitionsParamSwitches> getRequiredParamSwitches(){
+        ArrayList<DefinitionsParamSwitches> currentDefinedValidParamSwitches = getDefinedParamSwitches();
+        ArrayList<DefinitionsParamSwitches> requiredParamSwitches = new ArrayList<>();
+        
+        for(DefinitionsParamSwitches currentlyIteratedParamSwitch : currentDefinedValidParamSwitches){
+            if(!currentlyIteratedParamSwitch.isOPTIONAL()){
+                requiredParamSwitches.add(0, currentlyIteratedParamSwitch);
+            }
+        }
+        return requiredParamSwitches;
     }
 }
