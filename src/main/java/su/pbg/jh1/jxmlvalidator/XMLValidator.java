@@ -23,7 +23,7 @@ public class XMLValidator {
         checkParamSwitchesRoutine(initSwitches);
         
         //validatorConfig = ProgramInit.createProgramConfig(initSwitches);
-        
+  
         terminateProgramWithExitCode(DefinitionsExitCodes.SUCCESS);
     }
     
