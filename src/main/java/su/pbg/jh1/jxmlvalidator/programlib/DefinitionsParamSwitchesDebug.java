@@ -7,6 +7,7 @@ public class DefinitionsParamSwitchesDebug extends DefinitionsParamSwitches{
         super.setCALL_NAME_FULL("--debug");
         super.setCALL_NAME_SHORT("-d");
         super.setNEEDS_ADDITIONAL_ARGUMENTS(false);
+        super.setCAN_HAVE_MULTIPLE_ARGUMENTS(false);
         super.setOPTIONAL(true);
     }
 }

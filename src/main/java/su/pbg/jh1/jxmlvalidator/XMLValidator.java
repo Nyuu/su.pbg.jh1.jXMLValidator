@@ -37,7 +37,7 @@ public class XMLValidator {
         }
         
         if(!ProgramInit.providedParamSwitchesIsSane(initSwitches)){
-            terminateProgramForeseeable(DefinitionsExitCodes.NOT_ENOUGH_PARAM_ARGUMENTS_ERROR, "A parameter was expecting more arguments. The program will terminate.");
+            terminateProgramForeseeable(DefinitionsExitCodes.ADDITIONAL_PARAM_ARGUMENTS_ERROR, "A parameter was expecting more arguments or you provided too much arguments to a single argument parameter. The program will terminate.");
         }
         
         if(!ProgramInit.programCalledWithAllNecessarySwitches(initSwitches)){

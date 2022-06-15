@@ -7,6 +7,7 @@ public class DefinitionsParamSwitchesVerbose extends DefinitionsParamSwitches{
         super.setCALL_NAME_FULL("--verbose");
         super.setCALL_NAME_SHORT("-v");
         super.setNEEDS_ADDITIONAL_ARGUMENTS(false);
+        super.setCAN_HAVE_MULTIPLE_ARGUMENTS(false);
         super.setOPTIONAL(true);
     }
 }

@@ -7,6 +7,7 @@ public class DefinitionsParamSwitchesRestructure extends DefinitionsParamSwitche
         super.setCALL_NAME_FULL("--restructure-type");
         super.setCALL_NAME_SHORT("-r");
         super.setNEEDS_ADDITIONAL_ARGUMENTS(true);
+        super.setCAN_HAVE_MULTIPLE_ARGUMENTS(false);
         super.setOPTIONAL(true);
     }
 }

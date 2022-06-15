@@ -7,6 +7,7 @@ public class DefinitionsParamSwitchesVerify extends DefinitionsParamSwitches{
         super.setCALL_NAME_FULL("--verify");
         super.setCALL_NAME_SHORT("-y");
         super.setNEEDS_ADDITIONAL_ARGUMENTS(false);
+        super.setCAN_HAVE_MULTIPLE_ARGUMENTS(false);
         super.setOPTIONAL(true);
     }
 }

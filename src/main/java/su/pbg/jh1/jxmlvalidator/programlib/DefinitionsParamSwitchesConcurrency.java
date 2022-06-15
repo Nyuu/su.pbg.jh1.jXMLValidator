@@ -7,6 +7,7 @@ public class DefinitionsParamSwitchesConcurrency extends DefinitionsParamSwitche
         super.setCALL_NAME_FULL("--concurrency-limit");
         super.setCALL_NAME_SHORT("-t");
         super.setNEEDS_ADDITIONAL_ARGUMENTS(true);
+        super.setCAN_HAVE_MULTIPLE_ARGUMENTS(false);
         super.setOPTIONAL(true);
     }
 }

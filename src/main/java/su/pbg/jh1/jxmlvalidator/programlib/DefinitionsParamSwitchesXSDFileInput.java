@@ -7,6 +7,7 @@ public class DefinitionsParamSwitchesXSDFileInput extends DefinitionsParamSwitch
         super.setCALL_NAME_FULL("--schema-path");
         super.setCALL_NAME_SHORT("-s");
         super.setNEEDS_ADDITIONAL_ARGUMENTS(true);
+        super.setCAN_HAVE_MULTIPLE_ARGUMENTS(false);
         super.setOPTIONAL(true);
     }
 }

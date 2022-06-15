@@ -7,6 +7,7 @@ public class DefinitionsParamSwitchesConformity extends DefinitionsParamSwitches
         super.setCALL_NAME_FULL("--conformity");
         super.setCALL_NAME_SHORT("-c");
         super.setNEEDS_ADDITIONAL_ARGUMENTS(false);
+        super.setCAN_HAVE_MULTIPLE_ARGUMENTS(false);
         super.setOPTIONAL(true);
     }
 }
