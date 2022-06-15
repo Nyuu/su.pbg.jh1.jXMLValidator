@@ -16,7 +16,7 @@ public class XMLValidator {
      * Entry point for starting the XMLValidator program.
      * Should exit with code 0 for {@link su.pbg.jh1.jxmlvalidator.programlib.DefinitionsExitCodes#SUCCESS SUCCESS} when the application finished with the expected tasks successfully.
      * For other exit codes see class {@link su.pbg.jh1.jxmlvalidator.programlib.DefinitionsExitCodes DefinitionsExitCodes}.
-     * @param initSwitches An array containing all the parameters and switches with which the program was called.
+     * @param initSwitches An array containing all the arguments (parameters and switches) with which the program was called.
      */
     public static void main(String[] initSwitches) {
         
