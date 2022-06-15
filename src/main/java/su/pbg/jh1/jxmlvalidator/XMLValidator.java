@@ -52,8 +52,7 @@ public class XMLValidator {
      * @param stderrMessage 
      */
     private static void terminateProgramForeseeable(byte exitCode, String stderrMessage){
-        System.err.println(stderrMessage);
-        terminateProgramWithExitCode(exitCode);
+        terminateProgramWithMessage(exitCode, stderrMessage);
     }
     
     /**
@@ -63,6 +62,16 @@ public class XMLValidator {
      * @param stderrMessage 
      */
     private static void terminateProgramUnforeseeable(byte exitCode, String stderrMessage){
+        terminateProgramWithMessage(exitCode, stderrMessage);
+    }
+    
+    /**
+     * 
+     * Implicitly calls {@link #terminateProgramWithExitCode(byte) }after writing to stderr
+     * @param exitCode
+     * @param stderrMessage 
+     */
+    private static void terminateProgramWithMessage(byte exitCode, String stderrMessage){
         System.err.println(stderrMessage);
         terminateProgramWithExitCode(exitCode);
     }
