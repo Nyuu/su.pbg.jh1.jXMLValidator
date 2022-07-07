@@ -1,10 +1,9 @@
 package su.pbg.jh1.jxmlvalidator.programlib;
 
-import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.HashSet;
-
-import su.pbg.jh1.jxmlvalidator.programlib.ValidatorRuntimeConfig;
+import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Utility class with functions for the program initialisation.
@@ -132,7 +131,7 @@ public class ProgramInit {
      * @return NULL if associating a FULL_NAME to the provided String failed.<br/>FULL_NAME associated with the provided paramSwitchArrayElement from the paramswitch definitions.
      */
     private static String getMatchedParamSwitchFullName(String paramSwitchArrayElement){
-        ArrayList<DefinitionsParamSwitches> currentDefinedValidParamSwitches = getDefinedParamSwitches();
+        List<DefinitionsParamSwitches> currentDefinedValidParamSwitches = getDefinedParamSwitches();
         for(DefinitionsParamSwitches currentlyIteratedParamSwitch : currentDefinedValidParamSwitches){
             if((currentlyIteratedParamSwitch.getCALL_NAME_FULL().equals(paramSwitchArrayElement)) || (currentlyIteratedParamSwitch.getCALL_NAME_SHORT().equals(paramSwitchArrayElement))){
                 return currentlyIteratedParamSwitch.getFULL_NAME();
@@ -147,7 +146,7 @@ public class ProgramInit {
      * @return NULL if associating a paramSwitch to the provided FULL_NAME is not possible<br/>{@link DefinitionsParamSwitches} associated with the provided full name.
      */
     private static DefinitionsParamSwitches getParamSwitchByFullName(String fullNameOfParamSwitch){
-        ArrayList<DefinitionsParamSwitches> currentDefinedValidParamSwitches = getDefinedParamSwitches();
+        List<DefinitionsParamSwitches> currentDefinedValidParamSwitches = getDefinedParamSwitches();
         for(DefinitionsParamSwitches currentlyIteratedParamSwitch : currentDefinedValidParamSwitches){
             if(currentlyIteratedParamSwitch.getFULL_NAME().equals(fullNameOfParamSwitch)){
                 return currentlyIteratedParamSwitch;
@@ -158,11 +157,11 @@ public class ProgramInit {
     
     /**
      * Get a list containing all mandatory paramswitches as defined.
-     * @return {@link java.util.ArrayList} with {@link DefinitionsParamSwitches} elements.
+     * @return {@link java.util.List} with {@link DefinitionsParamSwitches} elements.
      */
-    private static ArrayList<DefinitionsParamSwitches> getRequiredParamSwitches(){
-        ArrayList<DefinitionsParamSwitches> currentDefinedValidParamSwitches = getDefinedParamSwitches();
-        ArrayList<DefinitionsParamSwitches> requiredParamSwitches = new ArrayList<>();
+    private static List<DefinitionsParamSwitches> getRequiredParamSwitches(){
+        List<DefinitionsParamSwitches> currentDefinedValidParamSwitches = getDefinedParamSwitches();
+        List<DefinitionsParamSwitches> requiredParamSwitches = new ArrayList<>();
         
         for(DefinitionsParamSwitches currentlyIteratedParamSwitch : currentDefinedValidParamSwitches){
             if(!currentlyIteratedParamSwitch.isOPTIONAL()){
@@ -174,21 +173,29 @@ public class ProgramInit {
     
     /**
      * Get a list containing all defined paramswitches.
-     * @return {@link java.util.ArrayList} with {@link DefinitionsParamSwitches} elements.
+     * @return {@link java.util.List} with {@link DefinitionsParamSwitches} elements.
      */
-    private static ArrayList<DefinitionsParamSwitches> getDefinedParamSwitches(){
-        ArrayList<DefinitionsParamSwitches> currentDefinedValidParamSwitches = new ArrayList<>();
-        
+     static List<DefinitionsParamSwitches> getDefinedParamSwitches(){
+        List<DefinitionsParamSwitches> currentDefinedValidParamSwitches = new ArrayList<>();
+
+        currentDefinedValidParamSwitches.add(0, new DefinitionsParamSwitchesHelp());
         currentDefinedValidParamSwitches.add(0, new DefinitionsParamSwitchesDebug());
         currentDefinedValidParamSwitches.add(0, new DefinitionsParamSwitchesVerbose());
         currentDefinedValidParamSwitches.add(0, new DefinitionsParamSwitchesVerify());
         currentDefinedValidParamSwitches.add(0, new DefinitionsParamSwitchesConformity());
-        
+
         currentDefinedValidParamSwitches.add(0, new DefinitionsParamSwitchesRestructure());
         currentDefinedValidParamSwitches.add(0, new DefinitionsParamSwitchesConcurrency());
         currentDefinedValidParamSwitches.add(0, new DefinitionsParamSwitchesXSDFileInput());
         currentDefinedValidParamSwitches.add(0, new DefinitionsParamSwitchesXMLFileInput());
-        
+
         return currentDefinedValidParamSwitches;
+    }
+
+    public static boolean programCalledWithHelpSwitch(String[] initSwitches) {
+        DefinitionsParamSwitchesHelp help = new DefinitionsParamSwitchesHelp();
+        String fullName = help.getCALL_NAME_FULL();
+        String shortName = help.getCALL_NAME_SHORT();
+        return Stream.of(initSwitches).anyMatch(s -> fullName.equals(s) || shortName.equals(s));
     }
 }
